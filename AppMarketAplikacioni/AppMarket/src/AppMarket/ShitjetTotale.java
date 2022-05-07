@@ -36,7 +36,7 @@ public class ShitjetTotale extends javax.swing.JFrame {
             df.setMaximumFractionDigits(2);
             
            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/java_login_registerr", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/appmarket", "root", "");
             
            java.sql.PreparedStatement statement =  con.prepareStatement("select sum(shuma) from `programi_shitjes` WHERE `user` = ? AND `data` = CURDATE()");
            statement.setString(1, jLabel6.getText());

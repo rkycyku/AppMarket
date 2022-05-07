@@ -306,7 +306,7 @@ public class RegisterForm extends javax.swing.JFrame {
         }
             
         PreparedStatement ps;
-        String query = "INSERT INTO `the_app`(`u_fname`, `u_lname`, `u_uname`, `u_pass`, `u_bdate`, `u_address`) VALUES (?,?,?,?,?,?)";
+        String query = "INSERT INTO `loginandreg`(`u_fname`, `u_lname`, `u_uname`, `u_pass`, `u_bdate`, `u_address`) VALUES (?,?,?,?,?,?)";
         
         try {
             ps = MyConnection.getConnection().prepareStatement(query);
@@ -340,7 +340,7 @@ public boolean checkUsername(String username)
         PreparedStatement ps;
         ResultSet rs;
         boolean checkUser = false;
-        String query = "SELECT * FROM `the_app` WHERE `u_uname` =?";
+        String query = "SELECT * FROM `loginandreg` WHERE `u_uname` =?";
         
         try {
             ps = MyConnection.getConnection().prepareStatement(query);

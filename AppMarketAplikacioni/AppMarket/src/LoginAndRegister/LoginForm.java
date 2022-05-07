@@ -167,7 +167,7 @@ public class LoginForm extends javax.swing.JFrame {
         String uname = jTextField1.getText();
         String pass = String.valueOf(jPasswordField1.getPassword());
         
-        String query = "SELECT * FROM `the_app` WHERE `u_uname` =? AND `u_pass` =?";
+        String query = "SELECT * FROM `loginandreg` WHERE `u_uname` =? AND `u_pass` =?";
         
         try {
             ps = MyConnection.getConnection().prepareStatement(query);

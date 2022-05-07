@@ -83,7 +83,7 @@ public class ProgramiShitjes extends javax.swing.JFrame {
             
             java.sql.Connection con = null;
             try{
-                con = DriverManager.getConnection("jdbc:mysql://localhost/java_login_registerr", "root", "");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/appmarket", "root", "");
             } catch(SQLException ex){
                 System.out.println(ex.getMessage());
             }
