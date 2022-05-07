@@ -280,21 +280,21 @@ public class RegisterForm extends javax.swing.JFrame {
                 
         if(uname.equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Add A Username");
+            JOptionPane.showMessageDialog(null, "Vendosni nje Username");
         }
         
         else if(pass.equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Add A Password");
+            JOptionPane.showMessageDialog(null, "Vendosni nje Password!");
         }
         else if(!pass.equals(re_pass))
         {
-            JOptionPane.showMessageDialog(null, "Retype The Password Again");
+            JOptionPane.showMessageDialog(null, "Rishkruani Passwordin perseri!");
         }
         
         else if(checkUsername(uname))
         {
-            JOptionPane.showMessageDialog(null, "This Username Already Exist");
+            JOptionPane.showMessageDialog(null, "Ky Username ekziston!");
         }
         
         else{
@@ -326,7 +326,7 @@ public class RegisterForm extends javax.swing.JFrame {
             
             if(ps.executeUpdate() > 0)
             {
-                JOptionPane.showMessageDialog(null, "New User Add");
+                JOptionPane.showMessageDialog(null, "Eshte shtuar perdorues i ri!");
             }
             
         } catch (SQLException ex) {
