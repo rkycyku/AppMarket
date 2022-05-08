@@ -1,4 +1,4 @@
-package LoginAndRegister;
+package Admin;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -8,6 +8,7 @@ package LoginAndRegister;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,7 @@ public class MyConnection {
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/appmarket", "root", "");
     } catch (ClassNotFoundException | SQLException ex) {
-    System.out.println(ex.getMessage());
+        JOptionPane.showMessageDialog(null, ex);
     }
 
     return con;

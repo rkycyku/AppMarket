@@ -5,9 +5,8 @@ package AppMarket;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-
-import com.sun.jdi.Value;
-import java.sql.DriverManager;
+import Admin.*;
+import java.sql.*;
 import java.text.DecimalFormat;
 
 
@@ -29,18 +28,15 @@ public class ShitjetTotale extends javax.swing.JFrame {
     }
     
     public void data(){
-        java.sql.Connection con = null;
+        Connection con = MyConnection.getConnection();
 
         try{
             DecimalFormat df = new DecimalFormat();
             df.setMaximumFractionDigits(2);
             
-           Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/appmarket", "root", "");
-            
-           java.sql.PreparedStatement statement =  con.prepareStatement("select sum(shuma) from `programi_shitjes` WHERE `user` = ? AND `data` = CURDATE()");
+           PreparedStatement statement =  con.prepareStatement("select sum(shuma) from `programi_shitjes` WHERE `user` = ? AND `data` = CURDATE()");
            statement.setString(1, jLabel6.getText());
-           java.sql.ResultSet result = statement.executeQuery();
+           ResultSet result = statement.executeQuery();
            result.next();
            jLabel4.setText("\u20ac " + df.format(result.getFloat(1)));
            

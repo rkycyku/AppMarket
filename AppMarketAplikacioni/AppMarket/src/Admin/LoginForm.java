@@ -1,4 +1,4 @@
-package LoginAndRegister;
+package Admin;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -7,11 +7,9 @@ package LoginAndRegister;
 
 
 import AppMarket.ProgramiShitjes;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.event.KeyEvent;
+import java.sql.*;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +25,41 @@ public class LoginForm extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+    }
+    
+    private void Kyçja(){
+        PreparedStatement ps;
+        ResultSet rs;
+        String uname = jTextField1.getText();
+        String pass = String.valueOf(jPasswordField1.getPassword());
+        
+        String query = "SELECT * FROM `loginandreg` WHERE `u_uname` =? AND `u_pass` =?";
+        
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+            
+            ps.setString(1, uname);
+            ps.setString(2, pass);
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                ProgramiShitjes sht = new ProgramiShitjes();
+                sht.setVisible(true);
+                sht.pack();
+                sht.setLocationRelativeTo(null);
+                sht.jLabel9.setText(uname);
+
+                this.dispose();
+            }
+            else{
+                    JOptionPane.showMessageDialog(null, "Password ose Username eshte vendosur gabim", "Hyrja deshtoi", 2);
+                }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -71,6 +104,12 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel3.setText("Password:");
+
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 0));
 
@@ -162,40 +201,14 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PreparedStatement ps;
-        ResultSet rs;
-        String uname = jTextField1.getText();
-        String pass = String.valueOf(jPasswordField1.getPassword());
-        
-        String query = "SELECT * FROM `loginandreg` WHERE `u_uname` =? AND `u_pass` =?";
-        
-        try {
-            ps = MyConnection.getConnection().prepareStatement(query);
-            
-            ps.setString(1, uname);
-            ps.setString(2, pass);
-            
-            rs = ps.executeQuery();
-            
-            if(rs.next())
-            {
-                ProgramiShitjes sht = new ProgramiShitjes();
-                sht.setVisible(true);
-                sht.pack();
-                sht.setLocationRelativeTo(null);
-                sht.jLabel9.setText(uname);
-
-                this.dispose();
-            }
-            else{
-                    JOptionPane.showMessageDialog(null, "Password ose Username eshte vendosur gabim", "Hyrja deshtoi", 2);
-                }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        Kyçja();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            Kyçja();
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments

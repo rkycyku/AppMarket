@@ -1,4 +1,4 @@
-package LoginAndRegister;
+package Admin;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -7,13 +7,9 @@ package LoginAndRegister;
 
 
 import AppMarket.ProgramiShitjes;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -62,21 +58,12 @@ public class RegisterForm extends javax.swing.JFrame {
         jTextField_FN = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jPasswordField_PASS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField_PASSActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel4.setText("Perdoruesi:");
@@ -111,7 +98,7 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel8.setText("Adresa:");
 
-        jButton3.setText("Home");
+        jButton3.setText("Programi i Shitjes");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -162,19 +149,17 @@ public class RegisterForm extends javax.swing.JFrame {
                                 .addGap(54, 54, 54)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(54, 54, 54))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel5))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(52, 52, 52)))
+                                    .addComponent(jLabel2)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addGap(36, 36, 36)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPasswordField_REPASS, javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +175,7 @@ public class RegisterForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton3)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -235,20 +220,6 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        jMenu1.setText("Admin");
-
-        jMenuItem1.setText("Regjistro");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -263,7 +234,7 @@ public class RegisterForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,21 +251,24 @@ public class RegisterForm extends javax.swing.JFrame {
                 
         if(uname.equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Vendosni nje Username");
+            JOptionPane.showMessageDialog(null, "Venosni një Username!");
         }
         
         else if(pass.equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Vendosni nje Password!");
+            JOptionPane.showMessageDialog(null, "Venosni një Password!");
         }
         else if(!pass.equals(re_pass))
         {
-            JOptionPane.showMessageDialog(null, "Rishkruani Passwordin perseri!");
+            JOptionPane.showMessageDialog(null, "Rishkruani Password-in!");
         }
         
         else if(checkUsername(uname))
         {
-            JOptionPane.showMessageDialog(null, "Ky Username ekziston!");
+            JOptionPane.showMessageDialog(null, "Ky Username tashmë ekziston!");
+        }
+        else if(jDateChooser_BDATE.getDate() == null){
+            JOptionPane.showMessageDialog(null, "Ju lutemi vendosni Daten e Lindjes!");
         }
         
         else{
@@ -326,7 +300,7 @@ public class RegisterForm extends javax.swing.JFrame {
             
             if(ps.executeUpdate() > 0)
             {
-                JOptionPane.showMessageDialog(null, "Eshte shtuar perdorues i ri!");
+                JOptionPane.showMessageDialog(null, "U shtua përdoruesi i ri!");
             }
             
         } catch (SQLException ex) {
@@ -335,7 +309,7 @@ public class RegisterForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-public boolean checkUsername(String username)
+    public boolean checkUsername(String username)
     {
         PreparedStatement ps;
         ResultSet rs;
@@ -357,17 +331,9 @@ public boolean checkUsername(String username)
         }
          return checkUser;
     }
-    private void jPasswordField_PASSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField_PASSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField_PASSActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ProgramiShitjes prg = new ProgramiShitjes();
@@ -423,9 +389,6 @@ public boolean checkUsername(String username)
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

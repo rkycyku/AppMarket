@@ -1,7 +1,7 @@
 package Calculator;
 
 import AppMarket.ProgramiShitjes;
-import LoginAndRegister.RegisterForm;
+import Admin.RegisterForm;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
