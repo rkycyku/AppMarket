@@ -23,6 +23,11 @@ Per informata rreth importimit te databazes mund te drejtoheni ne kete link:
 
 Per te mos patur probleme me aplikacionin dhe databazen mund ta perdorin aplikacionin [XAMPP](https://www.apachefriends.org/download.html) & mund te i referoheni kesaj [webfaqeje](https://www.wikihow.com/Start-XAMPP-at-Startup-in-Windows) per ta bere XAMPP te aktivizohet automatikisht menjeher pas ndezjes se kompjuterit.
 
+Pas importimit te databazes mund te kyqeni me keto te dhena:
+
+ - Username: admin
+ - Password: admin
+
 Aplikacioni eshte funksional vetem per Windows dhe eshte i testuar ne Windows 11 64bit.
 
 Support: [https://linktr.ee/rkycyku](https://linktr.ee/rkycyku)
