@@ -22,6 +22,7 @@ public class CalcAll extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -219,7 +220,7 @@ public class CalcAll extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        ProgramiShitjes prg = new ProgramiShitjes();
+        ProgramiShitjes prg = new ProgramiShitjes(1);
         prg.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed

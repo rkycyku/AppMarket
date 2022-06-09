@@ -23,6 +23,7 @@ public class DecimalCalc extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -253,7 +254,7 @@ public class DecimalCalc extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        ProgramiShitjes prog = new ProgramiShitjes();
+        ProgramiShitjes prog = new ProgramiShitjes(1);
         prog.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jMenu1MouseClicked

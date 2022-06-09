@@ -2,7 +2,8 @@ CREATE TABLE `programi_shitjes` (
   `ID` int(11) NOT NULL,
   `user` varchar(50) NOT NULL,
   `shuma` varchar(50) NOT NULL,
-  `data` date NOT NULL DEFAULT current_timestamp()
+  `pagesa` varchar(50) NOT NULL,
+  `data` date NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 

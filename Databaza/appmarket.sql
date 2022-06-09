@@ -57,7 +57,8 @@ CREATE TABLE `loginandreg` (
   `u_uname` varchar(50) NOT NULL,
   `u_pass` varchar(50) NOT NULL,
   `u_bdate` varchar(50) NOT NULL,
-  `u_address` varchar(50) NOT NULL
+  `u_address` varchar(50) NOT NULL,
+  `u_access` VARCHAR(50) NOT NULL DEFAULT "1 - Admin"
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -65,7 +66,7 @@ CREATE TABLE `loginandreg` (
 --
 
 INSERT INTO `loginandreg` (`ID`, `u_fname`, `u_lname`, `u_uname`, `u_pass`, `u_bdate`, `u_address`) VALUES
-(1, 'Rilind', 'Kyçyku', 'admin', 'admin', '2003-02-27', 'Komandant zefi');
+(1, 'Rilind', 'Kyçyku', 'admin', 'admin', '', '');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,8 @@ CREATE TABLE `programi_shitjes` (
   `ID` int(11) NOT NULL,
   `user` varchar(50) NOT NULL,
   `shuma` varchar(50) NOT NULL,
-  `data` date NOT NULL DEFAULT current_timestamp()
+  `pagesa` varchar(50) NOT NULL,
+  `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -185,6 +187,44 @@ ALTER TABLE `produktet`
 --
 ALTER TABLE `programi_shitjes`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- Table structure for table `katakses`
+--
+
+CREATE TABLE `katakses` (
+  `ID` int(50) NOT NULL,
+  `llojiAk` varchar(50) NOT NULL,
+  `pershkrimi` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `katakses`
+--
+
+INSERT INTO `katakses` (`ID`, `llojiAk`, `pershkrimi`) VALUES
+(1, '1 - Admin', 'Administratori i Programit'),
+(2, '2 - Kamarier', 'Aksesi i Kamariet, te gjitha funksionet e Adminit ');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `katakses`
+--
+ALTER TABLE `katakses`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `katakses`
+--
+ALTER TABLE `katakses`
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
