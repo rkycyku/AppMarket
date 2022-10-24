@@ -66,7 +66,7 @@ CREATE TABLE `loginandreg` (
 --
 
 INSERT INTO `loginandreg` (`ID`, `u_fname`, `u_lname`, `u_uname`, `u_pass`, `u_bdate`, `u_address`) VALUES
-(1, 'Rilind', 'Kyçyku', 'admin', 'admin', '', '');
+(1, 'Rilind', 'Kycyku', 'admin', 'admin', '', '');
 
 -- --------------------------------------------------------
 
